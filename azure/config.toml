@@ -1,0 +1,13 @@
+[config]
+resource_group = "CorexBatchResourceGroup"
+batch_account = "corexbatchaccount"
+storage_account = "corexstorageaccount"
+region = "uksouth"
+
+# there may be multiple pools aarch/x86
+pool_id = "CorexPool"
+
+container_name = "corexcontainer"
+identity = "corex-batch-identity"
+
+
