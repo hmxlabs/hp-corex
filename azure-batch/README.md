@@ -1,3 +1,14 @@
+# `hp-corex` on Azure Batch
+
+> [!WARNING]
+> As of 2026-04-23, the Azure cli command, 'az batch task file download' has an implementation bug. This will have to be manually patched. 
+> ```bash
+> `/opt/az/lib/python3.13/site-packages/azure/cli/command_modules/batch/_validators.py line 242
+> ```
+
+
+## `hp-corex` on Azure Batch
+
 1. Compile the Boost libraries and the ORE binaries. This will take a while. The output will be a tarball in the root directory called `corex-bin-boost-{TARGET_ARCHITECTURE}.tar.gz`;
 
 ```bash
