@@ -88,15 +88,15 @@ sas=$(az storage container generate-sas \
     -o tsv)
 
 
-node_arch="x86_64"
 
-echo "Uploading corex-bin-boost.tar.gz"
+
+echo "Uploading corex-bin-boost-$NODE_ARCH.tar.gz"
 az storage blob upload \
     --account-name $STORAGE_ACCOUNT \
     --container-name $CONTAINER_NAME \
-    --name "corex-bin-boost-$node_arch.tar.gz" \
+    --name "corex-bin-boost-$NODE_ARCH.tar.gz" \
     --sas-token $sas \
-    --file "./target/corex-bin-boost-$node_arch.tar.gz" \
+    --file "./target/corex-bin-boost-$NODE_ARCH.tar.gz" \
     --overwrite
 echo "Uploading corex.tar.gz"
 az storage blob upload \
@@ -111,7 +111,7 @@ libs=$(az storage blob url \
     --account-name $STORAGE_ACCOUNT \
     --container-name $CONTAINER_NAME \
     --sas-token $sas \
-    --name "corex-bin-boost-$node_arch.tar.gz"  | jq -r ".")
+    --name "corex-bin-boost-$NODE_ARCH.tar.gz"  | jq -r ".")
 
 
 corex_files=$(az storage blob url \

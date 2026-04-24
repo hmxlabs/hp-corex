@@ -1,0 +1,6 @@
+corex/
+target/
+output/
+.AZURE_SAS
+corex_total
+
