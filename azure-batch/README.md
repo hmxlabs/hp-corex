@@ -3,8 +3,16 @@
 > [!WARNING]
 > As of 2026-04-23, the Azure cli command, 'az batch task file download' has an implementation bug. This will have to be manually patched. 
 > ```bash
-> `/opt/az/lib/python3.13/site-packages/azure/cli/command_modules/batch/_validators.py line 242
+> /opt/az/lib/python3.13/site-packages/azure/cli/command_modules/batch/_validators.py line 242
 > ```
+> ```python
+> # Change: 
+> file_name = os.path.basename(namespace.file_name)
+> # into: 
+> file_name = os.path.basename(namespace.file_path)
+> ```
+        
+
 
 
 ## `hp-corex` on Azure Batch
