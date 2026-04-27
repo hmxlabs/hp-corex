@@ -48,7 +48,7 @@ az batch pool create \
     --id $POOL_ID \
     --image canonical:ubuntu-24_04-lts:server \
     --node-agent-sku-id "batch.node.ubuntu 24.04" \
-    --target-dedicated-nodes $N_TASKS \ # Should be the same number of nodes (or fewer) as the number of tasks
+    --target-dedicated-nodes $N_TASKS \
     --vm-size $VM_SIZE \
     --storage-account-type standard_lrs 
 
@@ -133,10 +133,13 @@ done
 
 echo "Calculating total score: "
 find ./output/$timestamp-*/results.json \
-    | xargs -I{} jq -r ".cpu_times.[]" {} | jq -r '.score'
-    | paste -sd+ | bc
-    | tee corex_total
+    | xargs -I{} jq -r ".cpu_times.[]" {} | jq -r '.score' \
+    | paste -sd+ | bc \
+    | tee corex_total \
     | { read x ; echo "Total Corex Score: ${x}" }
+
+
+
 
 
 
